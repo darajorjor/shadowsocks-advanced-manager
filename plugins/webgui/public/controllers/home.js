@@ -76,7 +76,7 @@ app
             $state.go('admin.index');
           }
         }).catch(err => {
-          alertDialog.show(err, '确定');
+          alertDialog.show(err, 'OK');
         });
       };
       $scope.findPassword = () => {
@@ -84,9 +84,9 @@ app
           return homeApi.findPassword($scope.user.email);
         })
         .then(success => {
-          alertDialog.show(success, '确定');
+          alertDialog.show(success, 'OK');
         }).catch(err => {
-          alertDialog.show(err, '确定');
+          alertDialog.show(err, 'OK');
         });
       };
       $scope.enterKey = key => {
@@ -105,7 +105,7 @@ app
           return homeApi.sendCode($scope.user.email);
         })
         .then(success => {
-          alertDialog.show('验证码已发至邮箱', '确定');
+          alertDialog.show('验证码已发至邮箱', 'OK');
           $scope.sendCodeTime = 120;
           const interval = $interval(() => {
             if ($scope.sendCodeTime > 0) {
@@ -116,7 +116,7 @@ app
             }
           }, 1000);
         }).catch(err => {
-          alertDialog.show(err, '确定');
+          alertDialog.show(err, 'OK');
         });
       };
       $scope.signup = () => {
@@ -124,11 +124,11 @@ app
           return homeApi.userSignup($scope.user.email, $scope.user.code, $scope.user.password);
         })
         .then(success => {
-          alertDialog.show('用户注册成功', '确定').then(success => {
+          alertDialog.show('用户注册成功', 'OK').then(success => {
             $state.go('home.login');
           });
         }).catch(err => {
-          alertDialog.show(err, '确定');
+          alertDialog.show(err, 'OK');
         });
       };
     }
@@ -146,7 +146,7 @@ app
       }).then(() => {
         return alertDialog.close();
       }).catch(() => {
-        alertDialog.show('该链接已经失效', '确定').then(() => {
+        alertDialog.show('该链接已经失效', 'OK').then(() => {
           $state.go('home.index');
         });
       });
@@ -156,11 +156,11 @@ app
           token,
           password: $scope.user.password,
         }).then(() => {
-          alertDialog.show('修改密码成功', '确定').then(() => {
+          alertDialog.show('修改密码成功', 'OK').then(() => {
             $state.go('home.login');
           });
         }).catch(() => {
-          alertDialog.show('修改密码失败', '确定');
+          alertDialog.show('修改密码失败', 'OK');
         });
       };
     }

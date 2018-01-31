@@ -198,10 +198,10 @@ app.controller('AdminUserController', ['$scope', '$state', '$stateParams', 'admi
       }, {
         timeout: 15000,
       }).then(success => {
-        alertDialog.show('添加用户成功', '确定');
+        alertDialog.show('User created successfully', 'OK');
         $state.go('admin.user');
       }).catch(() => {
-        alertDialog.show('添加用户失败', '确定');
+        alertDialog.show('Failed to create user', 'OK');
       });
     };
     $scope.cancel = () => {

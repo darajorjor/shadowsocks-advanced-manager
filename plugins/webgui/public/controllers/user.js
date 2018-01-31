@@ -299,7 +299,7 @@ app
     $scope.confirm = () => {
       alertDialog.loading();
       userApi.changePassword($scope.data.password, $scope.data.newPassword).then(success => {
-        alertDialog.show('修改密码成功，请重新登录', '确定')
+        alertDialog.show('修改密码成功，请重新登录', 'OK')
         .then(() => {
           return $http.post('/api/home/logout');
         }).then(() => {
@@ -308,7 +308,7 @@ app
           $state.go('home.index');
         });
       }).catch(err => {
-        alertDialog.show('修改密码失败', '确定');
+        alertDialog.show('修改密码失败', 'OK');
       });
     };
   }

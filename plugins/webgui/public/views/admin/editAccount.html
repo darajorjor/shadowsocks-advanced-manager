@@ -13,7 +13,7 @@
             <div style="height: 30px;"></div>
             <form name="accountForm">
                 <md-input-container class="md-block">
-                    <label>类型</label>
+                    <label>Types</label>
                     <div layout="row">
                         <md-select ng-model="account.type" flex="75">
                             <md-option ng-repeat="type in typeList" value="{{type.value}}">{{type.key}}</md-option>
@@ -26,21 +26,21 @@
                     </div>
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <label>端口</label>
+                    <label>Port</label>
                     <input type="number" required name="port" ng-model="account.port">
                     <div ng-messages="accountForm.port.$error">
                         <div ng-message="required">端口不能为空</div>
                     </div>
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <label>密码</label>
+                    <label>Password</label>
                     <input type="text" required name="password" ng-model="account.password" disabled>
                     <div ng-messages="accountForm.password.$error">
                         <div ng-message="required">密码不能为空</div>
                     </div>
                 </md-input-container>
                 <md-input-container class="md-block" ng-if="+account.type >= 2 && +account.type <= 5">
-                    <label>流量(MB)</label>
+                    <label>Flow(MB)</label>
                     <input type="number" required name="flow" ng-model="account.flow">
                     <div ng-messages="accountForm.flow.$error">
                         <div ng-message="required">流量不能为空</div>
@@ -48,14 +48,14 @@
                 </md-input-container>
             </form>
             <div ng-if="+account.type >= 2 && +account.type <= 5" style="width: 100%;" layout="row" layout-align="space-between center">
-                <div flex="75">到期自动删除</div>
+                <div flex="75" translate>到期自动删除</div>
                 <div flex layout="row" layout-align="end center">
                     <md-switch ng-model="account.autoRemove" aria-label="autoRemove" ng-true-value="1" ng-false-value="0">
                     </md-switch>
                 </div>
             </div>
             <div style="width: 100%;" layout="row" layout-align="space-between center">
-                <div flex="75">自定义可用服务器</div>
+                <div flex="75" translate>自定义可用服务器</div>
                 <div flex layout="row" layout-align="end center">
                     <md-switch ng-model="accountServer" aria-label="accountServer">
                     </md-switch>
@@ -79,9 +79,9 @@
     <div flex layout="row" layout-align="center start">
         <div flex="10" flex-gt-sm="30"></div>
         <div layout="row" flex layout-align="space-around center">
-            <md-button class="md-primary" ng-click="cancel()">取消</md-button>
-            <md-button class="md-warn" ng-click="deleteAccount()">删除</md-button>
-            <md-button class="md-raised md-primary" ng-click="confirm()">确认</md-button>
+            <md-button class="md-primary" ng-click="cancel()">Cancel</md-button>
+            <md-button class="md-warn" ng-click="deleteAccount()">Delete</md-button>
+            <md-button class="md-raised md-primary" ng-click="confirm()">Confirm</md-button>
         </div>
         <div flex="10" flex-gt-sm="30"></div>
     </div>

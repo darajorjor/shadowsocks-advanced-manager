@@ -2,37 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="033cf7f6-8f3a-4800-aeca-bff4cb58596f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/email/index.js" afterPath="$PROJECT_DIR$/plugins/email/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/libs/bundle.js" afterPath="$PROJECT_DIR$/plugins/webgui/libs/bundle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/controllers/admin.js" afterPath="$PROJECT_DIR$/plugins/webgui/public/controllers/admin.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/controllers/adminAccount.js" afterPath="$PROJECT_DIR$/plugins/webgui/public/controllers/adminAccount.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/controllers/adminServer.js" afterPath="$PROJECT_DIR$/plugins/webgui/public/controllers/adminServer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/controllers/adminSetting.js" afterPath="$PROJECT_DIR$/plugins/webgui/public/controllers/adminSetting.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/controllers/adminUser.js" afterPath="$PROJECT_DIR$/plugins/webgui/public/controllers/adminUser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/controllers/home.js" afterPath="$PROJECT_DIR$/plugins/webgui/public/controllers/home.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/controllers/user.js" afterPath="$PROJECT_DIR$/plugins/webgui/public/controllers/user.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/filters/time.js" afterPath="$PROJECT_DIR$/plugins/webgui/public/filters/time.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/translate/en-US.js" afterPath="$PROJECT_DIR$/plugins/webgui/public/translate/en-US.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/account.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/account.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/translate/fa-IR.js" afterPath="$PROJECT_DIR$/plugins/webgui/public/translate/fa-IR.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/accountPage.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/accountPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/addAccount.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/addAccount.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/addUser.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/addUser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/baseSetting.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/baseSetting.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/editNotice.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/editNotice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/editPayment.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/editPayment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/editServer.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/editServer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/newNotice.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/newNotice.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/paymentSetting.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/paymentSetting.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/pickTime.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/pickTime.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/serverPage.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/serverPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/settings.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/settings.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/user.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/user.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/userPage.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/userPage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/userSortDialog.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/userSortDialog.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/accountSortAndFilterDialog.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/accountSortAndFilterDialog.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/addServer.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/addServer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/editAccount.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/editAccount.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/orderFilterDialog.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/orderFilterDialog.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/admin/pickAccount.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/admin/pickAccount.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/dialog/addAccount.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/dialog/addAccount.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/dialog/changePassword.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/dialog/changePassword.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/dialog/serverChart.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/dialog/serverChart.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/home/home.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/home/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/server/home.js" afterPath="$PROJECT_DIR$/plugins/webgui/server/home.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plugins/webgui/public/views/dialog/confirm.html" afterPath="$PROJECT_DIR$/plugins/webgui/public/views/dialog/confirm.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -107,51 +95,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="notice.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/webgui/public/views/admin/notice.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="newNotice.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/webgui/public/views/admin/newNotice.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="19" column="51" lean-forward="false" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="previewNotice.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/webgui/public/views/admin/previewNotice.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="adminSetting.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="adminSetting.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plugins/webgui/public/controllers/adminSetting.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="27" column="3" lean-forward="true" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
+            <state relative-caret-position="399">
+              <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editPayment.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/webgui/public/views/admin/editPayment.html">
+      <file leaf-file-name="addServer.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/webgui/public/views/admin/addServer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="36" lean-forward="false" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+            <state relative-caret-position="278">
+              <caret line="53" column="38" lean-forward="false" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editAccount.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/plugins/webgui/public/views/admin/editAccount.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="491">
+              <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adminAccount.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/webgui/public/controllers/adminAccount.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="359">
+              <caret line="431" column="7" lean-forward="false" selection-start-line="431" selection-start-column="7" selection-end-line="431" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adminServer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/webgui/public/controllers/adminServer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1372">
+              <caret line="431" column="33" lean-forward="false" selection-start-line="431" selection-start-column="33" selection-end-line="431" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -161,22 +149,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>钟前</find>
-      <find>分钟前</find>
-      <find>Type</find>
-      <find>按月</find>
-      <find>不限量</find>
-      <find>typeList</find>
-      <find>watch</find>
-      <find>unlimited</find>
-      <find>按周</find>
-      <find>开始时间</find>
-      <find>几秒前</find>
-      <find>秒前</find>
-      <find>前</find>
-      <find>lang</find>
-      <find>点击进入</find>
-      <find>&amp;gt;&amp;gt;</find>
       <find>主题颜色</find>
       <find>标题</find>
       <find>修改支付homeHomecloudServerspeopleUsersaccount_circleAccountattach_moneyOrderssettingsSettings</find>
@@ -191,9 +163,26 @@
       <find>time = [</find>
       <find>setTitle</find>
       <find>显示图表</find>
+      <find>methods</find>
+      <find>请填写加密方式</find>
+      <find>添加服务器失败</find>
+      <find>添加账号成功</find>
+      <find>确定</find>
+      <find>L</find>
+      <find>lo</find>
+      <find>loa</find>
+      <find>loading</find>
+      <find>天</find>
+      <find>un</find>
+      <find>unlimited</find>
+      <find>D</find>
+      <find>Daily</find>
+      <find>typeList</find>
+      <find>添加用户成功</find>
     </findStrings>
     <replaceStrings>
       <replace>ENTER</replace>
+      <replace>OK</replace>
       <replace>Payment Settings</replace>
     </replaceStrings>
     <dirStrings>
@@ -226,7 +215,6 @@
         <option value="$PROJECT_DIR$/plugins/webgui/public/views/admin/addUser.html" />
         <option value="$PROJECT_DIR$/plugins/webgui/public/views/admin/userPage.html" />
         <option value="$PROJECT_DIR$/plugins/webgui/public/views/admin/account.html" />
-        <option value="$PROJECT_DIR$/plugins/webgui/public/controllers/adminAccount.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/plugins/webgui/public/views/admin/addAccount.html" />
         <option value="$PROJECT_DIR$/plugins/webgui/public/views/admin/pickTime.html" />
@@ -241,6 +229,11 @@
         <option value="$PROJECT_DIR$/plugins/webgui/public/translate/en-US.js" />
         <option value="$PROJECT_DIR$/plugins/webgui/public/views/admin/paymentSetting.html" />
         <option value="$PROJECT_DIR$/plugins/webgui/public/controllers/adminSetting.js" />
+        <option value="$PROJECT_DIR$/plugins/webgui/public/controllers/adminServer.js" />
+        <option value="$PROJECT_DIR$/plugins/webgui/public/views/admin/addServer.html" />
+        <option value="$PROJECT_DIR$/plugins/webgui/libs/bundle.js" />
+        <option value="$PROJECT_DIR$/plugins/webgui/public/controllers/adminAccount.js" />
+        <option value="$PROJECT_DIR$/plugins/webgui/public/views/admin/editAccount.html" />
       </list>
     </option>
   </component>
@@ -620,16 +613,15 @@
       <workItem from="1517395550162" duration="6148000" />
       <workItem from="1517406911329" duration="141000" />
       <workItem from="1517407163170" duration="115000" />
-      <workItem from="1517407310563" duration="4059000" />
+      <workItem from="1517407310563" duration="5279000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10825000" />
+    <option name="totallyTimeSpent" value="12045000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="ReactNative" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -639,10 +631,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32892057" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3299389" sideWeight="0.5021097" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11754069" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299389" sideWeight="0.4978903" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -668,40 +660,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/init/loadModels.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/init/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="2" lean-forward="true" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/webgui/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="70" column="21" lean-forward="true" selection-start-line="70" selection-start-column="21" selection-end-line="70" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-392">
-            <caret line="13" column="30" lean-forward="false" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-            <folding />
-          </first_editor>
-          <second_editor>
-            <js_state />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plugins/webgui/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
@@ -933,17 +891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/webgui/public/controllers/adminAccount.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="434" column="14" lean-forward="false" selection-start-line="434" selection-start-column="13" selection-end-line="434" selection-end-column="15" />
-          <caret line="435" column="14" lean-forward="false" selection-start-line="435" selection-start-column="13" selection-end-line="435" selection-end-column="15" />
-          <caret line="436" column="14" lean-forward="false" selection-start-line="436" selection-start-column="13" selection-end-line="436" selection-end-column="15" />
-          <caret line="437" column="14" lean-forward="false" selection-start-line="437" selection-start-column="13" selection-end-line="437" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -1126,8 +1073,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plugins/webgui/public/controllers/adminSetting.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" column="3" lean-forward="true" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
+        <state relative-caret-position="399">
+          <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/webgui/public/controllers/adminServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1372">
+          <caret line="431" column="33" lean-forward="false" selection-start-line="431" selection-start-column="33" selection-end-line="431" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/webgui/libs/bundle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="3" column="23110" lean-forward="true" selection-start-line="3" selection-start-column="23110" selection-end-line="3" selection-end-column="23110" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/webgui/public/views/admin/addServer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="53" column="38" lean-forward="false" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/webgui/public/controllers/adminAccount.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="431" column="7" lean-forward="false" selection-start-line="431" selection-start-column="7" selection-end-line="431" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plugins/webgui/public/views/admin/editAccount.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -368,11 +368,11 @@ app.controller('AdminAccountController', ['$scope', '$state', '$stateParams', '$
     $scope.setTitle('Add an Account');
     $scope.setMenuButton('arrow_back', 'admin.account');
     $scope.typeList = [
-      {key: '不限量', value: 1},
-      {key: '按周', value: 2},
-      {key: '按月', value: 3},
-      {key: '按天', value: 4},
-      {key: '小时', value: 5},
+      {key: 'Unlimited', value: 1},
+      {key: 'Weekly', value: 2},
+      {key: 'Monthly', value: 3},
+      {key: 'Daily', value: 4},
+      {key: 'Hourly', value: 5},
     ];
     $scope.timeLimit = {
       '2': 7 * 24 * 3600000,
@@ -400,10 +400,10 @@ app.controller('AdminAccountController', ['$scope', '$state', '$stateParams', '$
         flow: +$scope.account.flow * 1000 * 1000,
         autoRemove: $scope.account.autoRemove ? 1 : 0,
       }).then(success => {
-        alertDialog.show('添加账号成功', '确定');
+        alertDialog.show('Successfully created account', 'OK');
         $state.go('admin.account');
       }).catch(() => {
-        alertDialog.show('添加账号失败', '确定');
+        alertDialog.show('Failed to create account', 'OK');
       });
     };
     $scope.pickTime = () => {
@@ -431,11 +431,11 @@ app.controller('AdminAccountController', ['$scope', '$state', '$stateParams', '$
       $state.go('admin.accountPage', { accountId: $stateParams.accountId });
     });
     $scope.typeList = [
-      {key: '不限量', value: 1},
-      {key: '按周', value: 2},
-      {key: '按月', value: 3},
-      {key: '按天', value: 4},
-      {key: '小时', value: 5},
+      {key: 'Unlimited', value: 1},
+      {key: 'Weekly', value: 2},
+      {key: 'Monthly', value: 3},
+      {key: 'Daily', value: 4},
+      {key: 'Hourly', value: 5},
     ];
     $scope.timeLimit = {
       '2': 7 * 24 * 3600000,
@@ -498,10 +498,10 @@ app.controller('AdminAccountController', ['$scope', '$state', '$stateParams', '$
         autoRemove: $scope.account.autoRemove ? 1 : 0,
         server: $scope.accountServer ? server : null,
       }).then(success => {
-        alertDialog.show('修改账号成功', '确定');
+        alertDialog.show('修改账号成功', 'OK');
         $state.go('admin.accountPage', { accountId: $stateParams.accountId });
       }).catch(() => {
-        alertDialog.show('修改账号失败', '确定');
+        alertDialog.show('修改账号失败', 'OK');
       });
     };
     $scope.pickTime = () => {

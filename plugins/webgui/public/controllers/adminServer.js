@@ -354,10 +354,10 @@ app.controller('AdminServerController', ['$scope', '$http', '$state', 'moment', 
       }, {
         timeout: 15000,
       }).then(success => {
-        alertDialog.show('添加服务器成功', '确定');
+        alertDialog.show('Server created successfully', 'OK');
         $state.go('admin.server');
       }).catch(() => {
-        alertDialog.show('添加服务器失败', '确定');
+        alertDialog.show('Failed to add server', 'OK');
       });
     };
     $scope.cancel = () => {
@@ -420,10 +420,10 @@ app.controller('AdminServerController', ['$scope', '$http', '$state', 'moment', 
         scale: $scope.server.scale,
         shift: $scope.server.shift,
       }).then(success => {
-        alertDialog.show('修改服务器成功', '确定');
+        alertDialog.show('Server successfully modified', 'Loading');
         $state.go('admin.serverPage', { serverId: $stateParams.serverId });
       }).catch(() => {
-        alertDialog.show('修改服务器失败', '确定');
+        alertDialog.show('Failed to modify server', 'Loading');
       });
     };
     $scope.cancel = () => {
@@ -431,10 +431,10 @@ app.controller('AdminServerController', ['$scope', '$http', '$state', 'moment', 
     };
     $scope.deleteServer = () => {
       confirmDialog.show({
-        text: '真的要删除服务器吗？',
-        cancel: '取消',
-        confirm: '删除',
-        error: '删除服务器失败',
+        text: 'Are you sure you want to delete this server？',
+        cancel: 'Cancel',
+        confirm: 'Confirm',
+        error: 'Failed to delete server',
         fn: function () { return $http.delete('/api/admin/server/' + $stateParams.serverId); },
       }).then(() => {
         $state.go('admin.server');
