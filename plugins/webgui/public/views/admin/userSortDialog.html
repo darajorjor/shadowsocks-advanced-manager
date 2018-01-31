@@ -1,0 +1,20 @@
+<md-dialog aria-label="sort dialog">
+    <md-dialog-content>
+        <div class="md-dialog-content">
+            <div style="margin-bottom: 20px;">Sort By：</div>
+            <div layout="row" layout-align="center center">
+                <md-radio-group ng-model="userSort.sort">
+                    <md-radio-button value="id_asc">User ID ↑</md-radio-button>
+                    <md-radio-button value="id_desc">User ID ↓</md-radio-button>
+                    <md-radio-button value="lastLogin_asc">Last Login ↑</md-radio-button>
+                    <md-radio-button value="lastLogin_desc">Last Login ↓</md-radio-button>
+                </md-radio-group>
+            </div>
+        </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+        <md-button class="md-primary" ng-click="publicInfo.hide()">
+            Loading
+        </md-button>
+    </md-dialog-actions>
+</md-dialog>
