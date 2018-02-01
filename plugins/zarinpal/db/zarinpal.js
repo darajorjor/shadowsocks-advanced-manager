@@ -1,5 +1,5 @@
 const knex = appRequire('init/knex').knex;
-const tableName = 'paypal';
+const tableName = 'zarinpal';
 
 const createTable = async () => {
   const exist = await knex.schema.hasTable(tableName);
@@ -13,9 +13,9 @@ const createTable = async () => {
     table.string('amount');
     table.integer('user');
     table.integer('account');
-    table.string('paypalId').unique();
+    table.string('zarinpalId').unique();
     table.string('status');
-    table.string('paypalData', 4096);
+    table.string('zarinpalData', 4096);
     table.bigInteger('createTime');
     table.bigInteger('expireTime');
   });

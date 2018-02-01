@@ -2,7 +2,7 @@ const app = angular.module('app');
 
 app.controller('AdminSettingsController', ['$scope', '$http', '$timeout', '$state',
   ($scope, $http, $timeout, $state) => {
-    $scope.setTitle('设置');
+    $scope.setTitle('Settings');
     $scope.toNotice = () => {
       $state.go('admin.notice');
     };

@@ -32,7 +32,7 @@ setDefaultValue('account', {
   }
 });
 setDefaultValue('base', {
-  title: 'Shadowsocks-Manager',
+  title: 'NitroRayan Panel',
   themeAccent: 'pink',
   themePrimary: 'blue',
   serviceWorker: false,
@@ -40,32 +40,32 @@ setDefaultValue('base', {
 setDefaultValue('payment', {
   hour: {
     alipay: 0.15,
-    paypal: 0,
+    zarinpal: 0,
     flow: 500,
   },
   day: {
     alipay: 0.66,
-    paypal: 0,
+    zarinpal: 0,
     flow: 5000,
   },
   week: {
     alipay: 2.99,
-    paypal: 0,
+    zarinpal: 0,
     flow: 30000,
   },
   month: {
     alipay: 9.99,
-    paypal: 0,
+    zarinpal: 0,
     flow: 100000,
   },
   season: {
     alipay: 26.99,
-    paypal: 0,
+    zarinpal: 0,
     flow: 100000,
   },
   year: {
     alipay: 99.99,
-    paypal: 0,
+    zarinpal: 0,
     flow: 100000,
   },
 });

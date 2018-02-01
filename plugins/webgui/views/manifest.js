@@ -3,7 +3,7 @@ if(gcmSenderId) { gcmSenderId = gcmSenderId.toString(); }
 
 const manifest = {
   short_name: 'ssmgr',
-  name: 'Shadowsocks-Manager',
+  name: 'NitroRayan-Panel',
   icons: [
     {
       src: '/favicon.png',

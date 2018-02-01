@@ -6,11 +6,11 @@ const user = appRequire('plugins/user/index');
 const knex = appRequire('init/knex').knex;
 const moment = require('moment');
 const alipay = appRequire('plugins/alipay/index');
-const paypal = appRequire('plugins/paypal/index');
+const zarinpal = appRequire('plugins/zarinpal/index');
 const email = appRequire('plugins/email/index');
 const config = appRequire('services/config').all();
 const isAlipayUse = config.plugins.alipay && config.plugins.alipay.use;
-const isPaypalUse = config.plugins.paypal && config.plugins.paypal.use;
+const isZarinpalUse = config.plugins.zarinpal && config.plugins.zarinpal.use;
 const rp = require('request-promise');
 const macAccount = appRequire('plugins/macAccount/index');
 
@@ -194,11 +194,11 @@ exports.getRecentOrders = (req, res) => {
   });
 };
 
-exports.getPaypalRecentOrders = (req, res) => {
-  if(!isPaypalUse) {
+exports.getZarinpalRecentOrders = (req, res) => {
+  if(!isZarinpalUse) {
     return res.send([]);
   }
-  paypal.orderListAndPaging({
+  zarinpal.orderListAndPaging({
     pageSize: 5,
   }).then(success => {
     return res.send(success.orders);
@@ -290,14 +290,14 @@ exports.getUserOrders = (req, res) => {
   });
 };
 
-exports.getPaypalUserOrders = (req, res) => {
-  if(!isPaypalUse) {
+exports.getZarinpalUserOrders = (req, res) => {
+  if(!isZarinpalUse) {
     return res.send([]);
   }
   const options = {
     userId: +req.params.userId,
   };
-  paypal.orderList(options)
+  zarinpal.orderList(options)
   .then(success => {
     res.send(success);
   }).catch(err => {
@@ -331,8 +331,8 @@ exports.getOrders = (req, res) => {
   });
 };
 
-exports.getPaypalOrders = (req, res) => {
-  if(!isPaypalUse) {
+exports.getZarinpalOrders = (req, res) => {
+  if(!isZarinpalUse) {
     return res.send({
       maxPage: 0,
       page: 1,
@@ -345,9 +345,9 @@ exports.getPaypalOrders = (req, res) => {
   options.page = +req.query.page || 1;
   options.pageSize = +req.query.pageSize || 20;
   options.search = req.query.search || '';
-  options.sort = req.query.sort || 'paypal.createTime_desc';
+  options.sort = req.query.sort || 'zarinpal.createTime_desc';
   options.filter = req.query.filter || '';
-  paypal.orderListAndPaging(options)
+  zarinpal.orderListAndPaging(options)
   .then(success => {
     res.send(success);
   }).catch(err => {

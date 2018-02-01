@@ -166,7 +166,7 @@ app.controller('AdminController', ['$scope', '$mdMedia', '$mdSidenav', '$state',
       $scope.signupUsers = $localStorage.admin.indexInfo.data.signup;
       $scope.loginUsers = $localStorage.admin.indexInfo.data.login;
       $scope.orders = $localStorage.admin.indexInfo.data.order;
-      $scope.paypalOrders = $localStorage.admin.indexInfo.data.paypalOrder;
+      $scope.zarinpalOrders = $localStorage.admin.indexInfo.data.zarinpalOrder;
     }
     $scope.toUser = id => {
       $state.go('admin.userPage', { userId: id });
@@ -180,7 +180,7 @@ app.controller('AdminController', ['$scope', '$mdMedia', '$mdSidenav', '$state',
         $scope.signupUsers = success.signup;
         $scope.loginUsers = success.login;
         $scope.orders = success.order;
-        $scope.paypalOrders = success.paypalOrder;
+        $scope.zarinpalOrders = success.zarinpalOrder;
       });
     };
     updateIndexInfo();
@@ -208,9 +208,9 @@ app.controller('AdminController', ['$scope', '$mdMedia', '$mdSidenav', '$state',
     $scope.showOrderInfo = order => {
       orderDialog.show(order);
     };
-    $scope.myPayType = '支付宝';
+    $scope.myPayType = 'Zarinpal';
     let tabSwitchTime = 0;
-    $scope.payTypes = [{ name: '支付宝' }, { name: 'Paypal' }];
+    $scope.payTypes = [{ name: 'Zarinpal' }];
     $scope.selectPayType = type => {
       tabSwitchTime = Date.now();
       $scope.myPayType = type;

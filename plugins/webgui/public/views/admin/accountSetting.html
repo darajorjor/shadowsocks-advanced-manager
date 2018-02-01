@@ -21,23 +21,23 @@
                 <div flex>
                     <form name="newAccountForm">
                         <md-input-container class="md-block" style="height: 54px;">
-                            <label>类型</label>
+                            <label>Types</label>
                             <md-select ng-model="accountData.accountForNewUser.type">
-                                <md-option ng-value="2">周</md-option>
-                                <md-option ng-value="3">月</md-option>
-                                <md-option ng-value="4">天</md-option>
-                                <md-option ng-value="5">小时</md-option>
+                                <md-option ng-value="2">Week</md-option>
+                                <md-option ng-value="3">Month</md-option>
+                                <md-option ng-value="4">Day</md-option>
+                                <md-option ng-value="5">Hour</md-option>
                             </md-select>
                         </md-input-container>
                         <md-input-container class="md-block">
-                            <label>流量(MB)</label>
+                            <label>Flow(MB)</label>
                             <input type="number" required name="flow" ng-model="accountData.accountForNewUser.flow">
                             <!-- <div ng-messages="accountForm.flow.$error">
                                 <div ng-message="required">流量不能为空</div>
                             </div> -->
                         </md-input-container>
                         <md-input-container class="md-block">
-                            <label>周期</label>
+                            <label>Limit</label>
                             <input type="number" required name="limit" ng-model="accountData.accountForNewUser.limit">
                             <!-- <div ng-messages="accountForm.flow.$error">
                                 <div ng-message="required">流量不能为空</div>
@@ -60,7 +60,7 @@
             <md-list ng-show="accountData.accountForNewUser.isEnable">
                 <md-list-item>
                     <div class="md-list-item-text" style="width: 100%;" layout="row" layout-align="space-between center">
-                        <div flex="75" translate>自定义新用户可用服务器</div>
+                        <div flex="75" translate>Customize the new available server</div>
                         <div flex layout="row" layout-align="end center"><md-switch ng-model="setServerForNewUser" aria-label="serverForNewUser"></md-switch></div>
                     </div>
                 </md-list-item>
@@ -94,11 +94,11 @@
                 <div flex>
                     <form name="portForm">
                         <md-input-container class="md-block">
-                            <label>起始端口</label>
+                            <label>Start from</label>
                             <input type="number" required name="startPort" ng-model="accountData.port.start">
                         </md-input-container>
                         <md-input-container class="md-block">
-                            <label>结束端口</label>
+                            <label>End in</label>
                             <input type="number" required name="endPort" ng-model="accountData.port.end">
                         </md-input-container>
                     </form>

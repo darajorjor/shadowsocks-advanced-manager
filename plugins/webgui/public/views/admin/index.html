@@ -66,17 +66,17 @@
             </md-card-content>
         </md-card>
     </div>
-    <div flex-xs="100" flex-sm="100" flex-gt-sm="50" ng-show="paypalOrders.length">
+    <div flex-xs="100" flex-sm="100" flex-gt-sm="50" ng-show="zarinpalOrders.length">
         <md-card>
             <md-card-header>
                 <md-card-header-text>
-                    <span class="md-headline" translate>PayPal订单</span>
+                    <span class="md-headline" translate>Zarinpal Orders</span>
                 </md-card-header-text>
             </md-card-header>
             <md-card-content>
               <md-list>
                   <md-divider></md-divider>
-                  <md-list-item ng-repeat="order in paypalOrders">
+                  <md-list-item ng-repeat="order in zarinpalOrders">
                       <div flex layout="row" layout-align="space-between center" ng-click="showOrderInfo(order)">
                           <div flex="30" flex-xs="60">
                               <span style="font-size: 0.9em;">{{ order.orderId }}</span><br><span style="font-size: 0.9em;">{{ order.createTime | timeago }}</span>

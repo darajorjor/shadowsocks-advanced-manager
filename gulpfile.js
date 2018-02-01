@@ -117,10 +117,7 @@ gulp.task('babel', ['webguiCopy', 'freeAccountCopy', 'babelCopy'], () => {
 });
 
 gulp.task('webguiWatch', function () {
-  gulp.watch('plugins/webgui/public/**', ['webguiBuild']);
-  gulp.task('default', ['clean', 'babel'], () => {
-
-  });
+  gulp.watch('plugins/webgui/public/**', ['webguiCopy']);
 });
 
 gulp.task('default', ['clean', 'babel'], () => {

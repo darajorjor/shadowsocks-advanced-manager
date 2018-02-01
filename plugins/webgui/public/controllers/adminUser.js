@@ -101,7 +101,7 @@ app.controller('AdminUserController', ['$scope', '$state', '$stateParams', 'admi
 ])
 .controller('AdminUserPageController', ['$scope', '$state', '$stateParams', '$http', '$mdDialog', 'adminApi', 'orderDialog', 'confirmDialog', 'emailDialog', 'addAccountDialog',
   ($scope, $state, $stateParams, $http, $mdDialog, adminApi, orderDialog, confirmDialog, emailDialog, addAccountDialog) => {
-    $scope.setTitle('用户信息');
+    $scope.setTitle('User Info');
     $scope.setMenuButton('arrow_back', 'admin.user');
     const userId = $stateParams.userId;
     const getUserData = () => {
@@ -109,7 +109,7 @@ app.controller('AdminUserController', ['$scope', '$state', '$stateParams', 'admi
         $scope.user = success.user;
         $scope.server = success.server;
         $scope.alipayOrders = success.alipayOrders;
-        $scope.paypalOrders = success.paypalOrders;
+        $scope.zarinpalOrders = success.zarinpalOrders;
         $scope.user.account.forEach(f => {
           adminApi.getUserPortLastConnect(f.id).then(success => {
             f.lastConnect = success.lastConnect;

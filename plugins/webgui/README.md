@@ -51,7 +51,7 @@ This plugin provide a webgui to control shadowsocks.
       # webgui_telegram:
       #   use: true
       #   token: '191374681:AAw6oaVPR4nnY7T4CtW78QX-Xy2Q5WD3wmZ'
-      paypal:
+      zarinpal:
         use: true
         mode: 'live' # sandbox or live
         client_id: 'At9xcGd1t5L6OrICKNnp2g9'

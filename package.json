@@ -62,7 +62,8 @@
     "web-push": "^3.2.2",
     "webpack": "^1.15.0",
     "webpack-stream": "^3.2.0",
-    "ws": "^2.0.2"
+    "ws": "^2.0.2",
+    "zarinpal-checkout": "^0.2.7"
   },
   "repository": {
     "type": "git",

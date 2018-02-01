@@ -92,9 +92,9 @@ app.get('/api/admin/user/:accountId(\\d+)/lastConnect', isAdmin, admin.getUserPo
 app.get('/api/admin/alipay', isAdmin, admin.getOrders);
 app.get('/api/admin/alipay/recentOrder', isAdmin, admin.getRecentOrders);
 app.get('/api/admin/alipay/:userId(\\d+)', isAdmin, admin.getUserOrders);
-app.get('/api/admin/paypal', isAdmin, admin.getPaypalOrders);
-app.get('/api/admin/paypal/recentOrder', isAdmin, admin.getPaypalRecentOrders);
-app.get('/api/admin/paypal/:userId(\\d+)', isAdmin, admin.getPaypalUserOrders);
+app.get('/api/admin/zarinpal', isAdmin, admin.getZarinpalOrders);
+app.get('/api/admin/zarinpal/recentOrder', isAdmin, admin.getZarinpalRecentOrders);
+app.get('/api/admin/zarinpal/:userId(\\d+)', isAdmin, admin.getZarinpalUserOrders);
 
 app.get('/api/admin/notice', isAdmin, adminNotice.getNotice);
 app.get('/api/admin/notice/:noticeId(\\d+)', isAdmin, adminNotice.getOneNotice);
@@ -128,11 +128,11 @@ app.get('/api/user/order/price', isUser, user.getPrice);
 app.post('/api/user/order/qrcode', isUser, user.createOrder);
 app.post('/api/user/order/status', isUser, user.checkOrder);
 
-app.post('/api/user/paypal/create', isUser, user.createPaypalOrder);
-app.post('/api/user/paypal/execute', isUser, user.executePaypalOrder);
+app.get('/api/user/zarinpal/create', isUser, user.createZarinpalOrder);
+app.post('/api/user/zarinpal/execute', isUser, user.executeZarinpalOrder);
 
 app.post('/api/user/alipay/callback', user.alipayCallback);
-app.post('/api/user/paypal/callback', user.paypalCallback);
+app.post('/api/user/zarinpal/callback', user.zarinpalCallback);
 
 app.post('/api/user/changePassword', isUser, user.changePassword);
 
@@ -193,8 +193,8 @@ const version = appRequire('package').version;
 const configForFrontend = {
   site: config.plugins.webgui.site,
   alipay: config.plugins.alipay && config.plugins.alipay.use,
-  paypal: config.plugins.paypal && config.plugins.paypal.use,
-  paypalMode: config.plugins.paypal && config.plugins.paypal.mode,
+  zarinpal: config.plugins.zarinpal && config.plugins.zarinpal.use,
+  zarinpalMode: config.plugins.zarinpal && config.plugins.zarinpal.mode,
   macAccount: config.plugins.macAccount && config.plugins.macAccount.use,
   telegram: config.plugins.webgui_telegram && config.plugins.webgui_telegram.use,
 };
@@ -243,7 +243,7 @@ const homePage = (req, res) => {
       cdn,
       analytics,
       config: configForFrontend,
-      paypal: !!(config.plugins.paypal && config.plugins.paypal.use),
+      zarinpal: !!(config.plugins.zarinpal && config.plugins.zarinpal.use),
     });
   });
 };
