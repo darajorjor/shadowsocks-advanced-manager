@@ -334,8 +334,8 @@ exports.createZarinpalOrder = (req, res) => {
 
     if (req.query.Authority) {
       return zarinpal.executeOrder(amount, req.query.Authority)
-        .then(() => {
-          console.log(`redirecting to ${config.plugins.webgui.host}/admin/user`)
+        .then(async () => {
+          await account.setAccountLimit(userId, accountId, orderType);
           return res.redirect(`${config.plugins.webgui.host}/admin/user`)
         })
         .catch(e => {
