@@ -11,14 +11,14 @@ app.factory('adminApi', ['$http', '$q', 'moment', 'preload', '$timeout', ($http,
     return $http.get('/api/admin/user', { params: opt }).then(success => success.data);
   };
   const getOrder = (payType, opt = {}) => {
-    if(payType === 'Paypal') {
+    if(payType === 'Zarinpal') {
       opt.filter = opt.filter.map(m => {
         if(m === 'CREATE') return 'created';
         if(m === 'TRADE_SUCCESS') return 'approved';
         if(m === 'FINISH') return 'finish';
       }).filter(f => f);
     }
-    const url = payType === '支付宝' ? '/api/admin/alipay' : '/api/admin/paypal';
+    const url = payType === '支付宝' ? '/api/admin/alipay' : '/api/admin/zarinpal';
     const search = opt.search || '';
     const filter = opt.filter || '';
     // const sort = opt.sort || 'alipay.createTime_desc';
@@ -115,13 +115,13 @@ app.factory('adminApi', ['$http', '$q', 'moment', 'preload', '$timeout', ($http,
       $http.get('/api/admin/user/recentSignUp').then(success => success.data),
       $http.get('/api/admin/user/recentLogin').then(success => success.data),
       $http.get('/api/admin/alipay/recentOrder').then(success => success.data),
-      $http.get('/api/admin/paypal/recentOrder').then(success => success.data),
+      $http.get('/api/admin/zarinpal/recentOrder').then(success => success.data),
     ]).then(success => {
       return {
         signup: success[0],
         login: success[1],
         order: success[2],
-        paypalOrder: success[3],
+        zarinpalOrder: success[3],
       };
     });
     return indexInfoPromise;
@@ -132,7 +132,7 @@ app.factory('adminApi', ['$http', '$q', 'moment', 'preload', '$timeout', ($http,
     const promises = [
       $http.get('/api/admin/user/' + userId),
       $http.get('/api/admin/alipay/' + userId),
-      $http.get('/api/admin/paypal/' + userId),
+      $http.get('/api/admin/zarinpal/' + userId),
       $http.get('/api/admin/server'),
     ];
     if(macAccount) {
@@ -150,7 +150,7 @@ app.factory('adminApi', ['$http', '$q', 'moment', 'preload', '$timeout', ($http,
       return {
         user: success[0].data,
         alipayOrders: success[1].data,
-        paypalOrders: success[2].data,
+        zarinpalOrders: success[2].data,
         server: success[3].data,
         macAccount: success[4].data,
       };

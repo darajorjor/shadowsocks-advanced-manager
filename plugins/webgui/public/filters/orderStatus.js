@@ -3,17 +3,19 @@ const app = angular.module('app');
 app.filter('order', function() {
   return function(status) {
     const result = {
-      CREATE: '创建',
-      WAIT_BUYER_PAY: '等待',
-      TRADE_SUCCESS: '付款',
-      FINISH: '完成',
-      TRADE_CLOSED: '关闭',
-      created: '创建',
-      approved: '付款',
-      finish: '完成',
-      closed: '关闭',
+      // CREATE: '创建',
+      // WAIT_BUYER_PAY: '等待',
+      // TRADE_SUCCESS: '付款',
+      // FINISH: '完成',
+      // TRADE_CLOSED: '关闭',
+      created: 'Pending',
+      verified: 'Finished',
+      failed: 'Failed',
+      // approved: '付款',
+      // finish: '完成',
+      // closed: '关闭',
     };
-    return result[status] || '其它';
+    return result[status] || 'Other';
   };
 })
 .filter('prettyOrderId', function() {

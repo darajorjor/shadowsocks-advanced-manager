@@ -119,7 +119,7 @@ app
 ])
 .controller('UserAccountController', ['$scope', '$http', '$mdMedia', 'userApi', 'alertDialog', 'payDialog', 'qrcodeDialog', '$interval', '$localStorage', 'changePasswordDialog',
   ($scope, $http, $mdMedia, userApi, alertDialog, payDialog, qrcodeDialog, $interval, $localStorage, changePasswordDialog) => {
-    $scope.setTitle('账号');
+    $scope.setTitle('User');
     $scope.flexGtSm = 100;
     if(!$localStorage.user.serverInfo) {
       $localStorage.user.serverInfo = {
@@ -278,7 +278,7 @@ app
 ])
 .controller('UserSettingsController', ['$scope', '$state', 'userApi', 'alertDialog', '$http', '$localStorage',
   ($scope, $state, userApi, alertDialog, $http, $localStorage) => {
-    $scope.setTitle('设置');
+    $scope.setTitle('User Settings');
     $scope.toPassword = () => {
       $state.go('user.changePassword');
     };
@@ -289,7 +289,7 @@ app
 ])
 .controller('UserChangePasswordController', ['$scope', '$state', 'userApi', 'alertDialog', '$http', '$localStorage',
   ($scope, $state, userApi, alertDialog, $http, $localStorage) => {
-    $scope.setTitle('修改密码');
+    $scope.setTitle('Change Password');
     $scope.setMenuButton('arrow_back', 'user.settings');
     $scope.data = {
       password: '',
@@ -315,7 +315,7 @@ app
 ])
 .controller('UserTelegramController', ['$scope', '$state', 'userApi', 'alertDialog', '$http', '$localStorage', '$interval',
   ($scope, $state, userApi, alertDialog, $http, $localStorage, $interval) => {
-    $scope.setTitle('绑定Telegram');
+    $scope.setTitle('Bind Telegram');
     $scope.setMenuButton('arrow_back', 'user.settings');
     $scope.isLoading = true;
     $scope.code = {};

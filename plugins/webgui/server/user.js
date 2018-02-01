@@ -251,7 +251,7 @@ exports.alipayCallback = (req, res) => {
 exports.getPrice = (req, res) => {
   const price = {
     alipay: {},
-    paypal: {},
+    zarinpal: {},
   };
   knex('webguiSetting').select().where({
     key: 'payment',
@@ -264,7 +264,7 @@ exports.getPrice = (req, res) => {
   }).then(success => {
     for(const s in success) {
       price.alipay[s] = success[s].alipay;
-      price.paypal[s] = success[s].paypal;
+      price.zarinpal[s] = success[s].zarinpal;
     }
     return res.send(price);
   }).catch(() => {
@@ -304,12 +304,12 @@ exports.getMultiServerFlowStatus = (req, res) => {
   });
 };
 
-const paypal = appRequire('plugins/paypal/index');
+const zarinpal = appRequire('plugins/zarinpal/index');
 
-exports.createPaypalOrder = (req, res) => {
+exports.createZarinpalOrder = (req, res) => {
   const userId = req.session.user;
-  const accountId = req.body.accountId;
-  const orderType = req.body.orderType;
+  const accountId = req.query.accountId;
+  const orderType = req.query.orderType;
   let type;
   let amount;
   if(orderType === 'week') { type = 2; }
@@ -329,18 +329,35 @@ exports.createPaypalOrder = (req, res) => {
     success[0].value = JSON.parse(success[0].value);
     return success[0].value;
   }).then(success => {
-    amount = success[orderType].paypal;
-    return paypal.createOrder(userId, accountId, amount, type);
-  }).then(success => {
-    res.send(success);
+    amount = success[orderType].zarinpal;
+    const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl
+
+    if (req.query.Authority) {
+      return zarinpal.executeOrder(amount, req.query.Authority)
+        .then(() => {
+          console.log(`redirecting to ${config.plugins.webgui.host}/admin/user`)
+          return res.redirect(`${config.plugins.webgui.host}/admin/user`)
+        })
+        .catch(e => {
+          throw e
+        })
+    } else {
+      return zarinpal.createOrder(userId, accountId, amount, type, fullUrl)
+        .then(({ redirectUrl }) => {
+          res.status(200).json({ redirectUrl })
+        })
+        .catch(e => {
+          throw e
+        })
+    }
   })
   .catch(error => {
     res.status(403).end();
   });
 };
 
-exports.executePaypalOrder = (req, res) => {
-  paypal.executeOrder(req.body)
+exports.executeZarinpalOrder = (req, res) => {
+  zarinpal.executeOrder(req.body)
   .then(success => {
     res.send(success);
   })
@@ -349,7 +366,7 @@ exports.executePaypalOrder = (req, res) => {
   });
 };
 
-exports.paypalCallback = (req, res) => {
+exports.zarinpalCallback = (req, res) => {
   console.log(req.body);
   return res.send('success');
 };

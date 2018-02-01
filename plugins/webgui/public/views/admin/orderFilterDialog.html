@@ -1,22 +1,16 @@
 <md-dialog aria-label="filter dialog">
     <md-dialog-content>
         <div class="md-dialog-content">
-            <div style="margin-bottom: 20px;">过滤条件：</div>
+            <div style="margin-bottom: 20px;">Conditions：</div>
             <div layout="column" layout-align="center center">
                 <div flex>
-                    <md-checkbox ng-model="orderFilter.filter.CREATE">创建</md-checkbox>
+                    <md-checkbox ng-model="orderFilter.filter.pending">Pending</md-checkbox>
                 </div>
                 <div flex>
-                    <md-checkbox ng-model="orderFilter.filter.WAIT_BUYER_PAY">等待</md-checkbox>
+                    <md-checkbox ng-model="orderFilter.filter.verified">Finished</md-checkbox>
                 </div>
                 <div flex>
-                    <md-checkbox ng-model="orderFilter.filter.TRADE_SUCCESS">付款</md-checkbox>
-                </div>
-                <div flex>
-                    <md-checkbox ng-model="orderFilter.filter.FINISH">完成</md-checkbox>
-                </div>
-                <div flex>
-                    <md-checkbox ng-model="orderFilter.filter.TRADE_CLOSED">关闭</md-checkbox>
+                    <md-checkbox ng-model="orderFilter.filter.failed">Failed</md-checkbox>
                 </div>
             </div>
         </div>
