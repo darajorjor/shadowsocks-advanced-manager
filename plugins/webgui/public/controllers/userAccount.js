@@ -150,6 +150,7 @@ app.controller('UserAccountController', ['$scope', '$state', '$stateParams', '$h
     });
     let currentServerId;
     $scope.getServerPortData = (server, accountId) => {
+      if (!success) return null
       const serverId = server.id;
       currentServerId = serverId;
       $scope.serverPortFlow = 0;
