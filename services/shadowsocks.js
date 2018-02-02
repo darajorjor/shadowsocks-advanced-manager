@@ -108,7 +108,7 @@ const connect = () => {
 
 const sendMessage = (message) => {
   const randomTraceNumber = Math.random().toString().substr(2,6);
-  logger.info(`[${ randomTraceNumber }] Send to shadowsocks: ${ message }`);
+  // logger.info(`[${ randomTraceNumber }] Send to shadowsocks: ${ message }`);
   client.send(message, port, host);
   return Promise.resolve('ok');
 };

@@ -23,7 +23,6 @@ cron.second(() => {
 }, 10);
 
 const addPort = (data, server) => {
-  logger.info('addPort from checkAccount.js:26')
   messages.push([{
     command: 'add',
     port: data.port + server.shift,

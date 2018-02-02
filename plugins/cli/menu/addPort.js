@@ -32,7 +32,6 @@ const menu = [{
 }];
 
 const add = async () => {
-  console.log('add from addPort.js:35')
   try {
     const addPort = await inquirer.prompt(menu);
     await manager.send({
