@@ -185,7 +185,7 @@ exports.getServers = (req, res) => {
   .then(success => {
     servers = success;
     return account.getAccount({
-      userId,
+      owner: userId,
     }).then(accounts => {
       return accounts.map(f => {
         f.server = f.server ? JSON.parse(f.server) : f.server;

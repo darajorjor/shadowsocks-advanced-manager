@@ -12541,6 +12541,7 @@
 	  });
 	  var currentServerId = void 0;
 	  $scope.getServerPortData = function (server, accountId) {
+	    if (!server) return null;
 	    var serverId = server.id;
 	    currentServerId = serverId;
 	    $scope.serverPortFlow = 0;
