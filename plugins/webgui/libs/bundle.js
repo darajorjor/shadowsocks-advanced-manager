@@ -12546,6 +12546,7 @@
 	    $scope.serverPortFlow = 0;
 	    $scope.lastConnect = 0;
 	    userApi.getServerPortData(serverId, accountId).then(function (success) {
+	      if (!success) return null;
 	      $scope.serverPortFlow = success.serverPortFlow;
 	      $scope.lastConnect = success.lastConnect;
 	      var maxFlow = 0;
@@ -12566,6 +12567,7 @@
 	  $scope.setInterval($interval(function () {
 	    var serverId = currentServerId;
 	    userApi.getServerPortData(serverId, $scope.accountId).then(function (success) {
+	      if (!success) return null;
 	      if (serverId !== currentServerId) {
 	        return;
 	      }

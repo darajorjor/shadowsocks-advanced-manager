@@ -155,6 +155,7 @@ app.controller('UserAccountController', ['$scope', '$state', '$stateParams', '$h
       $scope.serverPortFlow = 0;
       $scope.lastConnect = 0;
       userApi.getServerPortData(serverId, accountId).then(success => {
+        if (!success) return null
         $scope.serverPortFlow = success.serverPortFlow;
         $scope.lastConnect = success.lastConnect;
         let maxFlow = 0;
@@ -173,6 +174,7 @@ app.controller('UserAccountController', ['$scope', '$state', '$stateParams', '$h
     $scope.setInterval($interval(() => {
       const serverId = currentServerId;
       userApi.getServerPortData(serverId, $scope.accountId).then(success => {
+        if (!success) return null
         if(serverId !== currentServerId) { return; }
         $scope.lastConnect = success.lastConnect;
         $scope.serverPortFlow = success.serverPortFlow;
