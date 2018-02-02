@@ -29,7 +29,6 @@ const checkCode = (data, password, code) => {
 };
 
 const receiveCommand = async (data, code) => {
-  logger.info(arguments && arguments.callee && arguments.callee.caller)
   try {
     const time = Number.parseInt(data.slice(0, 6).toString('hex'), 16);
     await knex('command').whereBetween('time', [0, Date.now() - 10 * 60 * 1000]).del();

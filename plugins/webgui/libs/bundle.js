@@ -9697,24 +9697,34 @@
 
 	app.factory('userApi', ['$q', '$http', function ($q, $http) {
 	  var userAccountPromise = null;
-	  var getUserAccount = function getUserAccount() {
+	  var getAccount = function getAccount() {
 	    if (userAccountPromise && !userAccountPromise.$$state.status) {
 	      return userAccountPromise;
 	    }
-	    var account = null;
-	    var servers = null;
-	    userAccountPromise = $q.all([$http.get('/api/user/account'), $http.get('/api/user/server')]).then(function (success) {
-	      return {
-	        account: success[0].data,
-	        servers: success[1].data.map(function (server) {
-	          if (server.host.indexOf(':') >= 0) {
-	            server.host = server.host.split(':')[1];
-	          }
-	          return server;
-	        })
-	      };
+	    userAccountPromise = $http.get('/api/user/account').then(function (success) {
+	      return success.data;
 	    });
 	    return userAccountPromise;
+	  };
+	  var userOneAccountPromise = null;
+	  var getOneAccount = function getOneAccount(id) {
+	    if (userOneAccountPromise && !userOneAccountPromise.$$state.status) {
+	      return userOneAccountPromise;
+	    }
+	    userOneAccountPromise = $http.get('/api/user/account/' + id).then(function (success) {
+	      return success.data;
+	    });
+	    return userOneAccountPromise;
+	  };
+
+	  var macAccountPromise = null;
+	  var getMacAccount = function getMacAccount() {
+	    /*
+	    if(macAccountPromise && !macAccountPromise.$$state.status) {
+	    return macAccountPromise;
+	    }
+	    macAccountPromise = $http.get('/api/user/macAccount').then(success => success.data);*/
+	    return [];
 	  };
 
 	  var changeShadowsocksPassword = function changeShadowsocksPassword(accountId, password) {
@@ -9779,11 +9789,13 @@
 
 	  return {
 	    getServerPortData: getServerPortData,
-	    getUserAccount: getUserAccount,
+	    getAccount: getAccount,
 	    changeShadowsocksPassword: changeShadowsocksPassword,
 	    changePassword: changePassword,
 	    updateAccount: updateAccount,
-	    getNotice: getNotice
+	    getNotice: getNotice,
+	    getMacAccount: getMacAccount,
+	    getOneAccount: getOneAccount
 	  };
 	}]);
 

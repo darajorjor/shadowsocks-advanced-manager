@@ -125,9 +125,11 @@ const setKey = async (key, value) => {
 
 const checkPort = async () => {
   let changePasswordMark = false;
+  logger.info('Deleting Something 45123')
   const accounts = await manager.send({ command: 'list' });
   accounts.forEach(account => {
     if(account.port !== currentPort) {
+      console.log('Deleting 124we')
       manager.send({ command: 'del', port: account.port});
     }
   });
@@ -150,6 +152,7 @@ const checkPort = async () => {
     }).then(success => {
       success.forEach(f => {
         if(f.port !== currentPort) {
+          console.log('Deleting 1asx24we')
           manager.send({ command: 'del', port: f.port});
         }
       });

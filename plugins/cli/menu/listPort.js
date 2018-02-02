@@ -69,6 +69,7 @@ const list = async () => {
     await listPort();
     const selectPort = await inquirer.prompt(menu);
     if(selectPort.act === 'Delete port') {
+      console.log('Deleting Something 123124')
       await manager.send({
         command: 'del',
         port: selectPort.port,

@@ -86,6 +86,7 @@ const checkPort = async () => {
   const ports = await knex('port').select();
   ports.forEach(port => {
     if(Date.now() - port.update >= timeout) {
+      logger.info('Deleting Manager')
       manager.send({ command: 'del', port: port.port });
       knex('port').delete().where({ user: port.user }).then();
       return;
@@ -95,12 +96,14 @@ const checkPort = async () => {
       manager.send({ command: 'add', port: port.port, password: port.password });
     }
     if(exists && isOutOfPrice(port)) {
+      console.log('Deleting 1aszzzzzzx24we')
       manager.send({ command: 'del', port: port.port });
     }
   });
   accounts.forEach(account => {
     const exists = ports.filter(f => f.port === account.port)[0];
     if(!exists) {
+      console.log('Deleting mamaaad')
       manager.send({ command: 'del', port: account.port});
     }
   });
@@ -114,8 +117,10 @@ const checkPort = async () => {
       console.log(account);
       const exists = ports.filter(f => f.port === account.port)[0];
       if(!exists) {
+        console.log('Deleting mazzxcxcmaaad')
         manager.send({ command: 'del', port: account.port});
       } else if(isOutOfPrice(exists)) {
+        console.log('Deleting mazzxcxcmaaad')
         manager.send({ command: 'del', port: account.port});
       } else {
         knex('port').where({ port: account.port }).then(success => {

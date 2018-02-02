@@ -35,6 +35,8 @@ const add = (message, port, password) => {
 };
 
 const del = (message, port) => {
+  logger.info('Deleting Something 123aa124')
+
   manager.send({
     command: 'del',
     port,
