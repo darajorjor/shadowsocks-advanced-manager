@@ -28,10 +28,6 @@ app
         name: '登录',
         icon: 'cloud',
         click: 'home.login'
-      }, {
-        name: '注册',
-        icon: 'face',
-        click: 'home.signup'
       }];
       $scope.menuClick = (index) => {
         $mdSidenav('left').close();
@@ -55,7 +51,7 @@ app
         content: '支持libev和python版本的标准manager API',
       }];
       $scope.login = () => { $state.go('home.login'); };
-      $scope.signup = () => { $state.go('home.signup'); };
+      $scope.signup = () => {  };
     }
   ])
   .controller('HomeLoginController', ['$scope', '$state', 'homeApi', 'alertDialog', '$localStorage',
@@ -120,6 +116,7 @@ app
         });
       };
       $scope.signup = () => {
+/*
         alertDialog.loading().then(() => {
           return homeApi.userSignup($scope.user.email, $scope.user.code, $scope.user.password);
         })
@@ -130,6 +127,7 @@ app
         }).catch(err => {
           alertDialog.show(err, 'OK');
         });
+*/
       };
     }
   ])

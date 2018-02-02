@@ -91,6 +91,8 @@ exports.getOneAccount = (req, res) => {
 };
 
 exports.addAccount = (req, res) => {
+  const userId = req.session.user
+
   req.checkBody('port', 'Invalid port').isInt({min: 1, max: 65535});
   req.checkBody('password', 'Invalid password').notEmpty();
   req.checkBody('time', 'Invalid time').notEmpty();
@@ -104,7 +106,7 @@ exports.addAccount = (req, res) => {
       const flow = +req.body.flow;
       const autoRemove = +req.body.autoRemove || 0;
       return account.addAccount(type, {
-        port, password, time, limit, flow, autoRemove,
+        port, password, time, limit, flow, autoRemove, owner: userId
       });
     }
     result.throw();

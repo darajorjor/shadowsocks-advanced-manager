@@ -29,6 +29,7 @@ const checkCode = (data, password, code) => {
 };
 
 const receiveCommand = async (data, code) => {
+  logger.info(arguments && arguments.callee && arguments.callee.caller)
   try {
     const time = Number.parseInt(data.slice(0, 6).toString('hex'), 16);
     await knex('command').whereBetween('time', [0, Date.now() - 10 * 60 * 1000]).del();
@@ -37,6 +38,7 @@ const receiveCommand = async (data, code) => {
       time,
     });
     const message = JSON.parse(data.slice(6).toString());
+    logger.info('Vay Vay Receive Command seda showd!');
     logger.info(message);
     if(message.command === 'add') {
       const port = +message.port;

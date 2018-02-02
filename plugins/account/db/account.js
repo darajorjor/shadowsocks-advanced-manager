@@ -14,6 +14,7 @@ const createTable = async() => {
     table.integer('port').unique();
     table.string('password');
     table.string('data');
+    table.string('owner');
     table.integer('status');
     table.integer('autoRemove').defaultTo(0);
   });

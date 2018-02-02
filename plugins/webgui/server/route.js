@@ -17,7 +17,7 @@ const knex = appRequire('init/knex').knex;
 const config = appRequire('services/config').all();
 
 const isUser = (req, res, next) => {
-  if(req.session.type === 'normal') {
+  if (req.session.type === 'normal') {
     knex('user').update({
       lastLogin: Date.now(),
     }).where({ id: req.session.user }).then();
@@ -27,7 +27,7 @@ const isUser = (req, res, next) => {
   }
 };
 const isAdmin = (req, res, next) => {
-  if(req.session.type === 'admin') {
+  if (req.session.type === 'admin') {
     return next();
   } else {
     return res.status(401).end();
@@ -36,7 +36,7 @@ const isAdmin = (req, res, next) => {
 
 app.get('/api/home/login', home.status);
 app.post('/api/home/code', home.sendCode);
-app.post('/api/home/signup', home.signup);
+// app.post('/api/home/signup', home.signup);
 app.post('/api/home/login', home.login);
 app.post('/api/home/macLogin', home.macLogin);
 app.post('/api/home/logout', home.logout);
@@ -54,9 +54,9 @@ app.get('/api/admin/account', isAdmin, admin.getAccount);
 app.get('/api/admin/macAccount', isAdmin, admin.getAllMacAccount);
 app.get('/api/admin/account/port/:port(\\d+)', isAdmin, admin.getAccountByPort);
 app.get('/api/admin/account/:accountId(\\d+)', isAdmin, admin.getOneAccount);
-app.get('/api/admin/account/:serverId(\\d+)/:accountId(\\d+)/ip', isAdmin, admin.getAccountIp);
+app.get('/api/admin/account/:serverId(\\d+)/:accountId(\\d+)/ip', isUser, admin.getAccountIp);
 app.get('/api/admin/account/ip/:ip', isAdmin, admin.getAccountIpInfo);
-app.get('/api/admin/account/:accountId(\\d+)/ip', isAdmin, admin.getAccountIpFromAllServer);
+app.get('/api/admin/account/:accountId(\\d+)/ip', isUser, admin.getAccountIpFromAllServer);
 app.post('/api/admin/account', isAdmin, admin.addAccount);
 app.put('/api/admin/account/:accountId(\\d+)/port', isAdmin, admin.changeAccountPort);
 app.put('/api/admin/account/:accountId(\\d+)/data', isAdmin, admin.changeAccountData);
@@ -115,6 +115,9 @@ app.post('/api/admin/setting/changePassword', isAdmin, adminSetting.changePasswo
 
 app.get('/api/user/notice', isUser, user.getNotice);
 app.get('/api/user/account', isUser, user.getAccount);
+app.post('/api/user/account', isUser, user.addAccount);
+app.delete('/api/user/account/:accountId(\\d+)', isUser, user.deleteAccount);
+app.put('/api/user/account/:accountId(\\d+)/data', isUser, user.changeAccountData);
 app.get('/api/user/account/:accountId(\\d+)', isUser, user.getOneAccount);
 app.get('/api/user/server', isUser, user.getServers);
 app.get('/api/user/flow/:serverId(\\d+)/:accountId(\\d+)', isUser, user.getServerPortFlow);
@@ -136,7 +139,7 @@ app.post('/api/user/zarinpal/callback', user.zarinpalCallback);
 
 app.post('/api/user/changePassword', isUser, user.changePassword);
 
-if(config.plugins.webgui_telegram && config.plugins.webgui_telegram.use) {
+if (config.plugins.webgui_telegram && config.plugins.webgui_telegram.use) {
   const telegram = appRequire('plugins/webgui_telegram/account');
   app.get('/api/user/telegram/code', isUser, user.getTelegramCode);
   app.get('/api/admin/telegram/code', isAdmin, adminSetting.getTelegramCode);
@@ -146,7 +149,7 @@ if(config.plugins.webgui_telegram && config.plugins.webgui_telegram.use) {
   app.post('/api/user/telegram/login', telegram.login);
 }
 
-if(config.plugins.webgui.gcmAPIKey && config.plugins.webgui.gcmSenderId) {
+if (config.plugins.webgui.gcmAPIKey && config.plugins.webgui.gcmSenderId) {
   app.post('/api/push/client', push.client);
   app.delete('/api/push/client', push.deleteClient);
 }
@@ -157,7 +160,7 @@ app.get('/favicon.png', (req, res) => {
     root: './plugins/webgui/'
   };
   const iconPath = config.plugins.webgui.icon;
-  if(iconPath) {
+  if (iconPath) {
     const ssmgrPath = path.resolve(os.homedir(), './.ssmgr/');
     if (iconPath[0] === '/' || iconPath[0] === '.') {
       options = {};
@@ -178,7 +181,7 @@ app.get('/manifest.json', (req, res) => {
   return knex('webguiSetting').select().where({
     key: 'base',
   }).then(success => {
-    if(!success.length) {
+    if (!success.length) {
       return Promise.reject('settings not found');
     }
     success[0].value = JSON.parse(success[0].value);
@@ -226,7 +229,7 @@ const homePage = (req, res) => {
   return knex('webguiSetting').select().where({
     key: 'base',
   }).then(success => {
-    if(!success.length) {
+    if (!success.length) {
       return Promise.reject('settings not found');
     }
     success[0].value = JSON.parse(success[0].value);
@@ -256,7 +259,7 @@ app.get('/serviceworker.js', (req, res) => {
   return knex('webguiSetting').select().where({
     key: 'base',
   }).then(success => {
-    if(!success.length) {
+    if (!success.length) {
       return Promise.reject('settings not found');
     }
     success[0].value = JSON.parse(success[0].value);
@@ -268,7 +271,7 @@ app.get('/serviceworker.js', (req, res) => {
       serviceWorkerTime: success.serviceWorkerTime,
     });
   });
-  
+
 });
 
 app.get('*', (req, res) => {

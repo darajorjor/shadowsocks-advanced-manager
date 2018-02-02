@@ -56,6 +56,7 @@ app.controller('AdminController', ['$scope', '$mdMedia', '$mdSidenav', '$state',
         });
       },
     }];
+
     $scope.menuButton = function() {
       if($scope.menuButtonIcon) {
         return $scope.menuButtonClick();

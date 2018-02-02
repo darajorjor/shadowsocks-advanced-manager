@@ -14,11 +14,6 @@ app.config(['$stateProvider', $stateProvider => {
       controller: 'UserIndexController',
       templateUrl: `${ cdn }/public/views/user/index.html`,
     })
-    .state('user.account', {
-      url: '/account',
-      controller: 'UserAccountController',
-      templateUrl: `${ cdn }/public/views/user/account.html`,
-    })
     .state('user.settings', {
       url: '/settings',
       controller: 'UserSettingsController',

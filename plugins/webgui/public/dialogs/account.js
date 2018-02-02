@@ -4,6 +4,7 @@ const cdn = window.cdn || '';
 
 app.factory('accountSortTool', [ () => {
   const sort = (accountInfo, method) => {
+    if (!accountInfo.originalAccount || !accountInfo.account) return null
     accountInfo.account = accountInfo.originalAccount.sort((a, b) => {
       if(method.sort === 'port_asc') {
         return a.port >= b.port ? 1 : -1;

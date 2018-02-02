@@ -35,6 +35,7 @@ const addPort = (data, server) => {
 };
 
 const delPort = (data, server) => {
+  console.log('delport from checkAccount.js')
   messages.push([{
     command: 'del',
     port: data.port + server.shift,

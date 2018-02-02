@@ -22,6 +22,8 @@ const formatMacAddress = mac => {
 };
 
 exports.signup = (req, res) => {
+  const userId = req.session.user
+
   req.checkBody('email', 'Invalid email').isEmail();
   req.checkBody('code', 'Invalid code').notEmpty();
   req.checkBody('password', 'Invalid password').notEmpty();
@@ -114,6 +116,7 @@ exports.signup = (req, res) => {
             flow: (newUserAccount.flow ? newUserAccount.flow : 350) * 1000000,
             server: newUserAccount.server ? JSON.stringify(newUserAccount.server): null,
             autoRemove: newUserAccount.autoRemove ? 1 : 0,
+            owner: userId,
           });
         });
       });

@@ -2,27 +2,30 @@ const app = angular.module('app');
 
 app.factory('userApi', ['$q', '$http', ($q, $http) => {
   let userAccountPromise = null;
-  const getUserAccount = () => {
+  const getAccount = () => {
     if(userAccountPromise && !userAccountPromise.$$state.status) {
       return userAccountPromise;
     }
-    let account = null;
-    let servers = null;
-    userAccountPromise = $q.all([
-      $http.get('/api/user/account'),
-      $http.get('/api/user/server'),
-    ]).then(success => {
-      return {
-        account: success[0].data,
-        servers: success[1].data.map(server => {
-          if(server.host.indexOf(':') >= 0) {
-            server.host = server.host.split(':')[1];
-          }
-          return server;
-        }),
-      };
-    });
+    userAccountPromise = $http.get('/api/user/account').then(success => success.data);
     return userAccountPromise;
+  };
+  let userOneAccountPromise = null
+  const getOneAccount = (id) => {
+    if(userOneAccountPromise && !userOneAccountPromise.$$state.status) {
+      return userOneAccountPromise;
+    }
+    userOneAccountPromise = $http.get(`/api/user/account/${id}`).then(success => success.data);
+    return userOneAccountPromise;
+  };
+
+
+  let macAccountPromise = null;
+  const getMacAccount = () => {/*
+    if(macAccountPromise && !macAccountPromise.$$state.status) {
+      return macAccountPromise;
+    }
+    macAccountPromise = $http.get('/api/user/macAccount').then(success => success.data);*/
+    return [];
   };
 
   const changeShadowsocksPassword = (accountId, password) => {
@@ -89,10 +92,12 @@ app.factory('userApi', ['$q', '$http', ($q, $http) => {
 
   return {
     getServerPortData,
-    getUserAccount,
+    getAccount,
     changeShadowsocksPassword,
     changePassword,
     updateAccount,
     getNotice,
+    getMacAccount,
+    getOneAccount,
   };
 }]);

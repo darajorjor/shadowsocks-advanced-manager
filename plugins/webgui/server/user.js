@@ -8,49 +8,53 @@ const config = appRequire('services/config').all();
 const alipay = appRequire('plugins/alipay/index');
 
 exports.getAccount = (req, res) => {
-  const userId = req.session.user;
-  account.getAccount({
-    userId,
-  }).then(success => {
-    success.forEach(f => {
-      f.data = JSON.parse(f.data);
-      if(f.type >= 2 && f.type <= 5) {
+  const userId = req.session.user
+  const userType = req.session.type
+
+  account.getAccount({ owner: userType === 'normal' ? userId : null }).then(success => {
+    success.forEach(account => {
+      account.data = JSON.parse(account.data);
+      if(account.type >= 2 && account.type <= 5) {
         const time = {
           '2': 7 * 24 * 3600000,
           '3': 30 * 24 * 3600000,
           '4': 24 * 3600000,
           '5': 3600000,
         };
-        f.data.expire = f.data.create + f.data.limit * time[f.type];
-        f.data.from = f.data.create;
-        f.data.to = f.data.create + time[f.type];
-        while(f.data.to <= Date.now()) {
-          f.data.from = f.data.to;
-          f.data.to = f.data.from + time[f.type];
+        account.data.expire = account.data.create + account.data.limit * time[account.type];
+        account.data.from = account.data.create;
+        account.data.to = account.data.create + time[account.type];
+        while(account.data.to <= Date.now()) {
+          account.data.from = account.data.to;
+          account.data.to = account.data.from + time[account.type];
         }
       }
-      f.server = f.server ? JSON.parse(f.server) : f.server;
+    });
+    success.sort((a, b) => {
+      return a.port >= b.port ? 1 : -1;
     });
     res.send(success);
   }).catch(err => {
     console.log(err);
-    res.status(500).end();
+    res.status(403).end();
   });
 };
 
 exports.getOneAccount = (req, res) => {
-  const userId = req.session.user;
+  // const userId = req.session.user;
   const accountId = +req.params.accountId;
   account.getAccount({
     id: accountId,
-    userId,
+    // userId,
   }).then(success => {
+    console.log('success ========>>>>', success)
     if(!success.length) {
       res.send({});
       return;
     }
     const accountInfo = success[0];
     accountInfo.data = JSON.parse(accountInfo.data);
+    console.log('accountInfo.data ========>>>>', accountInfo.data)
     if(accountInfo.type >= 2 && accountInfo.type <= 5) {
       const time = {
         '2': 7 * 24 * 3600000,
@@ -71,6 +75,107 @@ exports.getOneAccount = (req, res) => {
     console.log(err);
     res.status(500).end();
   });;
+};
+
+exports.addAccount = (req, res) => {
+  const userId = req.session.user
+
+  // req.checkBody('port', 'Invalid port').isInt({min: 1, max: 65535});
+  req.checkBody('password', 'Invalid password').notEmpty();
+  req.checkBody('time', 'Invalid time').notEmpty();
+  req.getValidationResult().then(async result => {
+    if(result.isEmpty()) {
+      const getNewPort = () => {
+        return knex('webguiSetting').select().where({
+          key: 'account',
+        }).then(success => {
+          if(!success.length) { return Promise.reject('settings not found'); }
+          success[0].value = JSON.parse(success[0].value);
+          return success[0].value.port;
+        }).then(port => {
+          if(port.random) {
+            const getRandomPort = () => Math.floor(Math.random() * (port.end - port.start + 1) + port.start);
+            let retry = 0;
+            let myPort = getRandomPort();
+            const checkIfPortExists = port => {
+              let myPort = port;
+              return knex('account_plugin').select()
+                .where({ port }).then(success => {
+                  if(success.length && retry <= 30) {
+                    retry++;
+                    myPort = getRandomPort();
+                    return checkIfPortExists(myPort);
+                  } else if (success.length && retry > 30) {
+                    return Promise.reject('Can not get a random port');
+                  } else {
+                    return myPort;
+                  }
+                });
+            };
+            return checkIfPortExists(myPort);
+          } else {
+            return knex('account_plugin').select()
+              .whereBetween('port', [port.start, port.end])
+              .orderBy('port', 'DESC').limit(1).then(success => {
+                if(success.length) {
+                  return success[0].port + 1;
+                }
+                return port.start;
+              });
+          }
+        });
+      };
+
+      const port = await getNewPort();
+      const password = req.body.password;
+      const time = req.body.time;
+      const flow = +req.body.flow;
+      return account.addAccount(2, { // account type
+        port, password, time, limit: 1, flow, autoRemove: true, owner: userId
+      });
+    }
+    result.throw();
+  }).then(success => {
+    res.send('success');
+  }).catch(err => {
+    console.log(err);
+    res.status(403).end();
+  });
+};
+
+exports.deleteAccount = (req, res) => {
+  const accountId = req.params.accountId;
+  const userId = req.session.user
+  account.delAccount(accountId, userId).then(success => {
+    res.send('success');
+  }).catch(err => {
+    console.log(err);
+    res.status(403).end();
+  });
+};
+
+exports.changeAccountData = (req, res) => {
+  const accountId = req.params.accountId;
+  console.log('req.body.port ================>>>>>>>>>> ', req.params.accountId)
+  console.log(req.body.port)
+  console.log(req.body.password)
+  console.log(req.body.autoRemove)
+  account.editAccount(accountId, {
+    // type: req.body.type,
+    port: +req.body.port,
+    password: req.body.password,
+    // time: req.body.time,
+    // limit: +req.body.limit,
+    // flow: +req.body.flow,
+    autoRemove: +req.body.autoRemove,
+    // server: req.body.server,
+  }).then(success => {
+    console.log('success ', success)
+    res.send('success');
+  }).catch(err => {
+    console.log(err);
+    res.status(403).end();
+  });
 };
 
 exports.getServers = (req, res) => {
@@ -335,10 +440,13 @@ exports.createZarinpalOrder = (req, res) => {
     if (req.query.Authority) {
       return zarinpal.executeOrder(amount, req.query.Authority)
         .then(async () => {
+          console.log('userId ======>>>>>>', userId, accountId, orderType)
           await account.setAccountLimit(userId, accountId, orderType);
-          return res.redirect(`${config.plugins.webgui.host}/admin/user`)
+          console.log(`http://${config.plugins.webgui.host}:${config.plugins.webgui.port}/user/account/${req.query.accountId}`)
+          return res.redirect(`http://${config.plugins.webgui.host}:${config.plugins.webgui.port}/user/account/${req.query.accountId}`)
         })
         .catch(e => {
+          console.error(e)
           throw e
         })
     } else {

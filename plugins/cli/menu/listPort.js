@@ -64,6 +64,7 @@ const listPort = async () => {
 };
 
 const list = async () => {
+  console.log('list port from listPort.js')
   try {
     await listPort();
     const selectPort = await inquirer.prompt(menu);

@@ -19,6 +19,7 @@ const addAccount = async (type, options) => {
       status: 0,
       server: options.server ? options.server : null,
       autoRemove: 0,
+      owner: options.owner,
     });
     await checkAccount.checkServer();
     return;
@@ -36,6 +37,7 @@ const addAccount = async (type, options) => {
       status: 0,
       server: options.server ? options.server : null,
       autoRemove: options.autoRemove || 0,
+      owner: options.owner,
     });
     await checkAccount.checkServer();
     return;
@@ -58,6 +60,9 @@ const getAccount = async (options = {}) => {
   if(options.port) {
     where['account_plugin.port'] = options.port;
   }
+  if(options.owner) {
+    where['account_plugin.owner'] = options.owner;
+  }
   const account = await knex('account_plugin').select([
     'account_plugin.id',
     'account_plugin.type',
@@ -76,14 +81,18 @@ const getAccount = async (options = {}) => {
   return account;
 };
 
-const delAccount = async (id) => {
+const delAccount = async (id, userId) => {
   const macAccounts = await macAccount.getAccountByAccountId(id);
   if(macAccounts.length) {
     macAccounts.forEach(f => {
       macAccount.deleteAccount(f.id);
     });
   }
-  const result = await knex('account_plugin').delete().where({ id });
+  const where = { id }
+  if (userId) {
+    where.owner = userId
+  }
+  const result = await knex('account_plugin').delete().where(where);
   if(!result) {
     return Promise.reject('Account id[' + id + '] not found');
   }
@@ -234,6 +243,13 @@ const setAccountLimit = async (userId, accountId, orderType) => {
   const payType = {
     week: 2, month: 3, day: 4, hour: 5, season: 6, year: 7,
   };
+
+  for (const p in payType) {
+    if(p === orderType) {
+      orderType = payType[p];
+    }
+  }
+
   let paymentType;
   let limit = 1;
   if(orderType === 6) { limit = 3; }
@@ -248,6 +264,7 @@ const setAccountLimit = async (userId, accountId, orderType) => {
     success[0].value = JSON.parse(success[0].value);
     return success[0].value;
   });
+
   for (const p in payType) {
     if(payType[p] === orderType) {
       paymentType = p;
@@ -255,7 +272,8 @@ const setAccountLimit = async (userId, accountId, orderType) => {
     if(paymentInfo[p].alipay) {
       flow[payType[p]] = paymentInfo[p].flow * 1000 * 1000;
     }
-  };
+  }
+
   let account;
   if(accountId) {
     account = await knex('account_plugin').select().where({ id: accountId }).then(success => {
@@ -344,6 +362,7 @@ const setAccountLimit = async (userId, accountId, orderType) => {
     accountData.limit += 1;
     accountData.create -= countTime;
   }
+
   let port = await getAccount({ id: accountId }).then(success => success[0].port);
   await knex('account_plugin').update({
     type: orderType >= 6 ? 3 : orderType,
