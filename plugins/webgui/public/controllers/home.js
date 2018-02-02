@@ -13,7 +13,7 @@ app
         $scope.setMainLoading(false);
       }
       $scope.innerSideNav = true;
-      $scope.menuButton = function() {
+      $scope.menuButton = function () {
         if ($mdMedia('gt-sm')) {
           $scope.innerSideNav = !$scope.innerSideNav;
         } else {
@@ -50,8 +50,11 @@ app
         title: '官方标准',
         content: '支持libev和python版本的标准manager API',
       }];
-      $scope.login = () => { $state.go('home.login'); };
-      $scope.signup = () => {  };
+      $scope.login = () => {
+        $state.go('home.login');
+      };
+      $scope.signup = () => {
+      };
     }
   ])
   .controller('HomeLoginController', ['$scope', '$state', 'homeApi', 'alertDialog', '$localStorage',
@@ -79,14 +82,14 @@ app
         alertDialog.loading().then(() => {
           return homeApi.findPassword($scope.user.email);
         })
-        .then(success => {
-          alertDialog.show(success, 'OK');
-        }).catch(err => {
+          .then(success => {
+            alertDialog.show(success, 'OK');
+          }).catch(err => {
           alertDialog.show(err, 'OK');
         });
       };
       $scope.enterKey = key => {
-        if(key.keyCode === 13) {
+        if (key.keyCode === 13) {
           $scope.login();
         }
       };
@@ -100,34 +103,32 @@ app
         alertDialog.loading().then(() => {
           return homeApi.sendCode($scope.user.email);
         })
-        .then(success => {
-          alertDialog.show('验证码已发至邮箱', 'OK');
-          $scope.sendCodeTime = 120;
-          const interval = $interval(() => {
-            if ($scope.sendCodeTime > 0) {
-              $scope.sendCodeTime--;
-            } else {
-              $interval.cancel(interval);
-              $scope.sendCodeTime = 0;
-            }
-          }, 1000);
-        }).catch(err => {
+          .then(success => {
+            alertDialog.show('验证码已发至邮箱', 'OK');
+            $scope.sendCodeTime = 120;
+            const interval = $interval(() => {
+              if ($scope.sendCodeTime > 0) {
+                $scope.sendCodeTime--;
+              } else {
+                $interval.cancel(interval);
+                $scope.sendCodeTime = 0;
+              }
+            }, 1000);
+          }).catch(err => {
           alertDialog.show(err, 'OK');
         });
       };
       $scope.signup = () => {
-/*
         alertDialog.loading().then(() => {
           return homeApi.userSignup($scope.user.email, $scope.user.code, $scope.user.password);
         })
-        .then(success => {
-          alertDialog.show('用户注册成功', 'OK').then(success => {
-            $state.go('home.login');
-          });
-        }).catch(err => {
+          .then(success => {
+            alertDialog.show('用户注册成功', 'OK').then(success => {
+              $state.go('home.login');
+            });
+          }).catch(err => {
           alertDialog.show(err, 'OK');
         });
-*/
       };
     }
   ])

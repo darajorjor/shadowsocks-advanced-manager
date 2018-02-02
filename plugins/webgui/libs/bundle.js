@@ -11980,18 +11980,15 @@
 	    });
 	  };
 	  $scope.signup = function () {
-	    /*
-	            alertDialog.loading().then(() => {
-	              return homeApi.userSignup($scope.user.email, $scope.user.code, $scope.user.password);
-	            })
-	            .then(success => {
-	              alertDialog.show('用户注册成功', 'OK').then(success => {
-	                $state.go('home.login');
-	              });
-	            }).catch(err => {
-	              alertDialog.show(err, 'OK');
-	            });
-	    */
+	    alertDialog.loading().then(function () {
+	      return homeApi.userSignup($scope.user.email, $scope.user.code, $scope.user.password);
+	    }).then(function (success) {
+	      alertDialog.show('用户注册成功', 'OK').then(function (success) {
+	        $state.go('home.login');
+	      });
+	    }).catch(function (err) {
+	      alertDialog.show(err, 'OK');
+	    });
 	  };
 	}]).controller('HomeResetPasswordController', ['$scope', '$http', '$state', '$stateParams', 'alertDialog', function ($scope, $http, $state, $stateParams, alertDialog) {
 	  $scope.user = {};
