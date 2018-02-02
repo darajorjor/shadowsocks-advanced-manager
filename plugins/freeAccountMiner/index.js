@@ -82,6 +82,7 @@ const prettyTime = number => {
 };
 
 const checkPort = async () => {
+  logger.info('Checking ports from freeAccountMiner/index:85')
   const accounts = await manager.send({ command: 'list' });
   const ports = await knex('port').select();
   ports.forEach(port => {
