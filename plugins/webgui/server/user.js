@@ -462,8 +462,8 @@ exports.createZarinpalOrder = (req, res) => {
         .then(async () => {
           console.log('userId ======>>>>>>', userId, accountId, orderType)
           await account.setAccountLimit(userId, accountId, orderType);
-          console.log(`http://${config.plugins.webgui.host}:${config.plugins.webgui.port}/user/account/${req.query.accountId}`)
-          return res.redirect(`http://${config.plugins.webgui.host}:${config.plugins.webgui.port}/user/account/${req.query.accountId}`)
+          console.log(`http://${config.plugins.webgui.site}/user/account/${req.query.accountId}`)
+          return res.redirect(`http://${config.plugins.webgui.site}/user/account/${req.query.accountId}`)
         })
         .catch(e => {
           console.error(e)
