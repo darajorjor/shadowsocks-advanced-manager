@@ -68,13 +68,13 @@
                                             <div flex="60" style="text-align:right">
                                                 <span ng-if="account.type === 1" translate>无</span>
                                                 <span ng-if="account.type >=2 && account.type <= 5">
-                                                    <span style="font-size: 0.9em;">{{account.data.from | date : 'yyyy-MM-dd HH:mm'}}</span><br><span style="font-size: 0.9em;">{{account.data.to | date : 'yyyy-MM-dd HH:mm'}}</span>
+                                                    <span style="font-size: 0.9em;">{{account.data.create | date : 'yyyy-MM-dd HH:mm'}}</span><br><span style="font-size: 0.9em;">{{account.data.expire | date : 'yyyy-MM-dd HH:mm'}}</span>
                                                 </span>
                                             </div>
                                         </div>
                                     </md-list-item>
-                                    <md-divider></md-divider>
-                                    <md-list-item>
+                                    <!--<md-divider></md-divider>-->
+                                    <!--<md-list-item>
                                         <div flex layout="row" layout-align="space-between center">
                                           <div flex="40" translate>到期时间：</div>
                                           <div flex="60" style="text-align:right">
@@ -84,7 +84,7 @@
                                               </span>
                                           </div>
                                         </div>
-                                    </md-list-item>
+                                    </md-list-item>-->
                                     <md-divider></md-divider>
                                     <md-list-item>
                                         <div flex layout="row" layout-align="space-between center" ng-click="clientIp(server.id, account.id)">

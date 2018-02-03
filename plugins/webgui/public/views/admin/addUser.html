@@ -13,6 +13,13 @@
                     </div>
                 </md-input-container>
                 <md-input-container class="md-block">
+                    <label>Telegram</label>
+                    <input type="text" required name="telegram" ng-model="user.telegram">
+                    <div ng-messages="userForm.telegram.$error">
+                        <div ng-message="required">Telegram Id cannot be empty</div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
                     <label>Password</label>
                     <input type="password" required name="password" ng-model="user.password">
                     <div ng-messages="userForm.password.$error">

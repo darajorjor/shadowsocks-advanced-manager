@@ -123,10 +123,10 @@ app.controller('AdminUserController', ['$scope', '$state', '$stateParams', 'admi
     getUserData();
     $scope.deleteUserAccount = (accountId) => {
       confirmDialog.show({
-        text: '将此账号移除出该用户的列表？',
-        cancel: '取消',
-        confirm: '移除',
-        error: '移除账号失败',
+        text: 'Remove this account?',
+        cancel: 'Cancel',
+        confirm: 'Confirm',
+        error: 'Failed to remove account',
         fn: function () { return $http.delete(`/api/admin/user/${ userId }/${ accountId }`); },
       }).then(() => {
         getUserData();
@@ -169,10 +169,10 @@ app.controller('AdminUserController', ['$scope', '$state', '$stateParams', 'admi
     };
     $scope.deleteUser = () => {
       confirmDialog.show({
-        text: '真的要删除该用户吗？',
-        cancel: '取消',
-        confirm: '删除',
-        error: '删除用户失败',
+        text: 'Are you sure you want to delete this user？',
+        cancel: 'Cancel',
+        confirm: 'Confirm',
+        error: 'Failed to delete user',
         fn: function () {
           return $http.delete(`/api/admin/user/${ userId }`);
         },
@@ -187,7 +187,7 @@ app.controller('AdminUserController', ['$scope', '$state', '$stateParams', 'admi
 ])
 .controller('AdminAddUserController', ['$scope', '$state', '$stateParams', '$http', 'alertDialog',
   ($scope, $state, $stateParams, $http, alertDialog) => {
-    $scope.setTitle('添加用户');
+    $scope.setTitle('Add User');
     $scope.setMenuButton('arrow_back', 'admin.user');
     $scope.user = {};
     $scope.confirm = () => {
@@ -195,6 +195,7 @@ app.controller('AdminUserController', ['$scope', '$state', '$stateParams', 'admi
       $http.post('/api/admin/user/add', {
         email: $scope.user.email,
         password: $scope.user.password,
+        telegram: $scope.user.telegram,
       }, {
         timeout: 15000,
       }).then(success => {

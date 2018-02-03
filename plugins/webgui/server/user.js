@@ -129,10 +129,30 @@ exports.addAccount = (req, res) => {
       const port = await getNewPort();
       const password = req.body.password;
       const time = req.body.time;
-      const flow = +req.body.flow;
-      return account.addAccount(2, { // account type
-        port, password, time, limit: 1, flow, autoRemove: true, owner: userId
-      });
+
+      return knex('webguiSetting').select().where({
+        key: 'account',
+      })
+        .then(success => JSON.parse(success[0].value))
+        .then(success => {
+          const newUserAccount = success.accountForNewUser;
+
+          if(!newUserAccount.isEnable) {
+            // not enabled
+          }
+
+          return account.addAccount(newUserAccount.type || 5, { // account type
+            port,
+            password,
+            time,
+            limit: newUserAccount.limit || 8,
+            flow: (newUserAccount.flow ? newUserAccount.flow : 350) * 1000000,
+            server: newUserAccount.server ? JSON.stringify(newUserAccount.server): null,
+            autoRemove: newUserAccount.autoRemove ? 1 : 0,
+            owner: userId,
+            user: userId,
+          });
+        });
     }
     result.throw();
   }).then(success => {

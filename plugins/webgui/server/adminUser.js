@@ -34,10 +34,12 @@ exports.addUser = (req, res) => {
     if(result.isEmpty()) {
       const email = req.body.email;
       const password = req.body.password;
+      const telegram = req.body.telegram;
       return user.add({
         username: email,
         email,
         password,
+        telegram,
         type: 'normal',
       });
     }
