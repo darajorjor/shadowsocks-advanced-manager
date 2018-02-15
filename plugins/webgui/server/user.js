@@ -458,6 +458,9 @@ exports.createZarinpalOrder = (req, res) => {
     const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl
 
     if (req.query.Authority) {
+      if (req.query.Status === 'NOK') {
+        return res.redirect(`http://${config.plugins.webgui.site}/user/account/${req.query.accountId}`)
+      }
       return zarinpal.executeOrder(amount, req.query.Authority)
         .then(async () => {
           console.log('userId ======>>>>>>', userId, accountId, orderType)
