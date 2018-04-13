@@ -1,0 +1,53 @@
+type: m
+
+manager:
+  address: 127.0.0.1:6002
+  password: '12345'
+
+plugins:
+  flowSaver:
+    use: true
+  user:
+    use: true
+  account:
+    use: true
+  macAccount:
+    use: false
+  group:
+    use: false
+  email:
+    use: false
+    username: 'username'
+    password: 'password'
+    host: 'smtp.your-email.com'
+  webgui:
+    use: true
+    host: '0.0.0.0'
+    # host: 'localhost'
+    port: '80'
+    site: 'http://panel.nitrorayan.com'
+    # cdn: 'http://xxx.xxx.com'
+    # icon: 'icon.png'
+    # skin: 'default'
+    # googleAnalytics: 'UA-xxxxxxxx-x'
+    gcmSenderId: '456102641793'
+    gcmAPIKey: 'AAAAGzzdqrE:XXXXXXXXXXXXXX'
+  # alipay:
+  #   use: true
+  #   appid: 2015012104922471
+  #   notifyUrl: 'http://yourwebsite.com/api/user/alipay/callback'
+  #   merchantPrivateKey: 'xxxxxxxxxxxx'
+  #   alipayPublicKey: 'xxxxxxxxxxx'
+  #   gatewayUrl: 'https://openapi.alipay.com/gateway.do'
+  # webgui_telegram:
+  #   use: true
+  #   token: '191374681:AAw6oaVPR4nnY7T4CtW78QX-Xy2Q5WD3wmZ'
+  zarinpal:
+    use: true
+    api_key: '09afc852-0687-11e8-8386-005056a205be'
+    sandbox: false
+    email: 'example@example.com'
+    mobile: '09120000000'
+    mode: 'live' # sandbox or live
+
+db: 'client.sqlite'

@@ -4,7 +4,9 @@
   "description": "A shadowsocks manager tool for multi user and traffic control.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "npm run start:server && npm run start:webgui",
+    "start:server": "node server.js -c config/server.yml",
+    "start:client": "node server.js -c config/client.yml",
     "build": "gulp",
     "watch": "gulp webguiWatch",
     "prepublish": "gulp"

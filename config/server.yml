@@ -6,9 +6,9 @@ shadowsocks:
 
 manager:
   address: 0.0.0.0:6002
-  password: '123456'
+  password: '12345'
 
-db: 'db.sqlite'
+db: 'server.sqlite'
 
 # db:
 #   host: '1.1.1.1'
