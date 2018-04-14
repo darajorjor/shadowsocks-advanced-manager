@@ -45,6 +45,7 @@ exports.signup = (req, res) => {
       return;
     });
   }).then(success => {
+    if (type !== 'admin') return res.status(406).send('not allowed')
     const email = req.body.email.toString().toLowerCase();
     const password = req.body.password;
     return user.add({
