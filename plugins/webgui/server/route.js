@@ -36,7 +36,7 @@ const isAdmin = (req, res, next) => {
 
 app.get('/api/home/login', home.status);
 app.post('/api/home/code', home.sendCode);
-// app.post('/api/home/signup', home.signup);
+app.post('/api/home/signup', home.signup);
 app.post('/api/home/login', home.login);
 app.post('/api/home/macLogin', home.macLogin);
 app.post('/api/home/logout', home.logout);
