@@ -194,3 +194,17 @@ If you find this project helpful, please consider making a donation:
 
 * WeChat Pay  
 <img src="https://github.com/gyteng/gyteng.github.com/raw/master/media/pic/wechat.png" width="160">
+
+
+________________
+
+INSTRUCTIONS
+
+install nodejs
+install pm2
+install shadowsocks
+open 80 port
+
+run ss-server with manager address according to docs
+run `npm run build`
+run `pm2 start ecosystem.config.js`
